@@ -15,9 +15,12 @@ const Books = () => {
 
   const fetchBooks = async () => {
     const token = localStorage.getItem("token");
-    const response = await axios.get("http://localhost:5000/books", {
-      headers: { authorization: `Bearer ${token}` },
-    });
+    const response = await axios.get(
+      "https://book-store-sever.vercel.app/books",
+      {
+        headers: { authorization: `Bearer ${token}` },
+      }
+    );
     setBooks(response.data);
   };
 
@@ -31,7 +34,7 @@ const Books = () => {
       const token = localStorage.getItem("token");
       if (editingBook) {
         await axios.put(
-          `http://localhost:5000/books/${editingBook._id}`,
+          `https://book-store-sever.vercel.app/books/${editingBook._id}`,
           form,
           {
             headers: { authorization: `Bearer ${token}` },
@@ -40,7 +43,7 @@ const Books = () => {
         toast.success("Book updated successfully!");
         setEditingBook(null);
       } else {
-        await axios.post("http://localhost:5000/books", form, {
+        await axios.post("https://book-store-sever.vercel.app/books", form, {
           headers: { authorization: `Bearer ${token}` },
         });
         toast.success("Book added successfully!");
@@ -64,7 +67,7 @@ const Books = () => {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/books/${id}`, {
+      await axios.delete(`https://book-store-sever.vercel.app/books/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Book deleted successfully!");

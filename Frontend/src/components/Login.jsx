@@ -16,7 +16,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/login", form);
+      const response = await axios.post(
+        "https://book-store-sever.vercel.app/login",
+        form
+      );
       localStorage.setItem("token", response.data.token);
       toast.success("Login successful!");
       navigate("/books");

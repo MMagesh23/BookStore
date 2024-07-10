@@ -17,9 +17,12 @@ const Order = () => {
   const fetchBooks = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.get("http://localhost:5000/books", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(
+        "https://book-store-sever.vercel.app/books",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setBooks(response.data);
     } catch (error) {
       toast.error("Failed to fetch books.");
@@ -29,9 +32,12 @@ const Order = () => {
   const fetchOrders = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await axios.get("http://localhost:5000/order", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(
+        "https://book-store-sever.vercel.app/order",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       const ordersData = response.data.map((order) => ({
         ...order,
         totalAmount: calculateOrderTotal(order.bookIds),
@@ -68,7 +74,7 @@ const Order = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:5000/order",
+        "https://book-store-sever.vercel.app/order",
         { bookIds: selectedBooks.map((book) => book._id) },
         { headers: { Authorization: `Bearer ${token}` } }
       );
