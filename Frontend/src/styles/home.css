@@ -1,0 +1,17 @@
+.home-nav {
+  margin: 2rem 0;
+}
+
+.home-link {
+  text-decoration: none;
+  color: #fff;
+  background-color: #333;
+  padding: 0.5rem 2rem;
+  margin: 0 1rem;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.home-link:hover {
+  background-color: #555;
+}

@@ -1,0 +1,43 @@
+header {
+  background-color: #b6b6b6;
+  padding: 2px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a,
+nav ul li button {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #444;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+}
+
+nav ul li a:hover,
+nav ul li button:hover {
+  background-color: #555;
+}
+
+nav ul li button {
+  background-color: #db4949;
+}
+
+nav ul li button:hover {
+  background-color: #ff0000;
+}
