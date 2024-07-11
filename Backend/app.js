@@ -13,7 +13,10 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 app.use(express.json());
 app.use(cors());
-app.use(cors({ origin: "https://book-store-sever.vercel.app" }));
+app.use(cors({ origin: ["https://book-store-seven-kappa.vercel.app/"],
+             methods:["POST","GET","PUT","DELETE"],
+              credentials:true
+             }));
 
 app.use("/", authRoutes);
 app.use("/", bookRoutes);
