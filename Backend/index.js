@@ -10,14 +10,21 @@ const orderRoutes = require("./routes/orderRoutes");
 const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
+const router = express.Router();
 
 app.use(express.json());
 app.use(cors());
-app.use(cors({ origin: ["https://book-store-seven-kappa.vercel.app/"],
-             methods:["POST","GET","PUT","DELETE"],
-              credentials:true
-             }));
+app.use(
+  cors({
+    origin: ["https://book-store-seven-kappa.vercel.app/"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
+app.get("/", (req, res) => {
+  res.send("Hello from Express");
+});
 app.use("/", authRoutes);
 app.use("/", bookRoutes);
 app.use("/", orderRoutes);
